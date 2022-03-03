@@ -18,13 +18,14 @@ console.log(sum(1, 2, 3, 4, 5));
 /**
  * Membuat fungsi showFamilies.
  * Menampilkan anggota keluarga.
+ * Parameter ketiga menggunakan rest parameters.
  */
 
-function showFamilies(husband, wife, ...childs) {
+function showFamilies(husband, wife, ...children) {
   console.log(`Suami: ${husband}`);
   console.log(`Istri: ${wife}`);
 
-  for (const child of childs) {
+  for (const child of children) {
     console.log(`Anak: ${child}`);
   }
 }
