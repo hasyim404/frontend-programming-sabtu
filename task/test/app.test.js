@@ -1,9 +1,9 @@
-import users from "../src-solution/data/users.js";
+import users from "../src/data/users.js";
 import {
   formatUser,
   findByName,
   filterByMajor,
-} from "../src-solution/controllers/UserController";
+} from "../src/controllers/UserController";
 
 describe("# Menjalankan Test: Array of Object", () => {
   const keys = ["name", "age", "major"];
@@ -37,16 +37,21 @@ describe("# Menjalankan Test: Array of Object", () => {
 describe("# Menjalankan Test: Function formatUser", () => {
   const keys = ["name", "age", "major"];
   const title = "Mr/Mrs";
-  let usersFormatted = [];
+  let formattedUsers = [];
 
   beforeAll(async () => {
-    usersFormatted = await formatUser(title);
+    formattedUsers = await formatUser(title);
   });
 
-  test("Fungsi harus bisa format user", () => {});
+  test("Fungsi harus bisa format nama user", () => {
+    formattedUsers.forEach((user) => {
+      const { name } = user;
+      expect(name).toContain(title);
+    });
+  });
 
   test("Fungsi mengembalikan array of object", () => {
-    expect(usersFormatted).toEqual(
+    expect(formattedUsers).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
           name: expect.any(String),
@@ -57,15 +62,8 @@ describe("# Menjalankan Test: Function formatUser", () => {
     );
   });
 
-  test("Property name mengandung kata yang sudah diformat", () => {
-    usersFormatted.forEach((user) => {
-      const { name } = user;
-      expect(name).toContain(title);
-    });
-  });
-
   test("Semua object harus memiliki property: name, age, dan major", () => {
-    usersFormatted.forEach((user) => {
+    formattedUsers.forEach((user) => {
       keys.forEach((key) => {
         expect(user).toHaveProperty(key);
       });
@@ -74,17 +72,61 @@ describe("# Menjalankan Test: Function formatUser", () => {
 });
 
 describe("# Menjalankan Test: Function findByName", () => {
-  test("Fungsi harus bisa mencari 1 user berdasarkan nama", () => {});
+  const name = "Aufa";
+  const keys = ["name", "age", "major"];
+  let foundUser = {};
 
-  test("Fungsi mengembalikan 1 data object", () => {});
+  beforeAll(async () => {
+    foundUser = await findByName(name);
+  });
 
-  test("Object memiliki property: name, age, dan major", () => {});
+  test("Fungsi harus bisa mencari 1 user berdasarkan nama", () => {
+    expect(foundUser.name).toContain(name);
+  });
+
+  test("Fungsi mengembalikan 1 data object bukan array", () => {
+    expect(typeof foundUser).toEqual("object");
+  });
+
+  test("Object memiliki property: name, age, dan major", () => {
+    keys.forEach((key) => {
+      expect(foundUser).toHaveProperty(key);
+    });
+  });
 });
 
 describe("# Menjalankan Test: Function filterByMajor", () => {
-  test("Fungsi harus bisa mencari semua semua user berdasarkan major", () => {});
+  let filteredUsers = [];
+  const keys = ["name", "age", "major"];
+  const major = "English";
 
-  test("Fungsi mengembalikan array of object", () => {});
+  beforeAll(async () => {
+    filteredUsers = await filterByMajor(major);
+  });
 
-  test("Semua object memiliki property: name, age, dan major", () => {});
+  test("Fungsi harus bisa mencari semua semua user berdasarkan major", () => {
+    filteredUsers.forEach((user) => {
+      expect(user.major).toContain(major);
+    });
+  });
+
+  test("Fungsi mengembalikan array of object", () => {
+    expect(filteredUsers).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: expect.any(String),
+          age: expect.any(Number),
+          major: expect.any(String),
+        }),
+      ])
+    );
+  });
+
+  test("Semua object memiliki property: name, age, dan major", () => {
+    filteredUsers.forEach((user) => {
+      keys.forEach((key) => {
+        expect(user).toHaveProperty(key);
+      });
+    });
+  });
 });
