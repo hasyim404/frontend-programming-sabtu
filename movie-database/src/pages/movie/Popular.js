@@ -18,7 +18,7 @@ function PopularMovie() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     getPopularMovies();
-  });
+  }, []);
 
   async function getPopularMovies() {
     /**
