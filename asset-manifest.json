@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/aufaroot18.github.io/frontend-programming/static/css/main.09d41f32.css",
-    "main.js": "/aufaroot18.github.io/frontend-programming/static/js/main.86cefc6c.js",
-    "static/js/787.d02d9e27.chunk.js": "/aufaroot18.github.io/frontend-programming/static/js/787.d02d9e27.chunk.js",
-    "index.html": "/aufaroot18.github.io/frontend-programming/index.html",
-    "main.09d41f32.css.map": "/aufaroot18.github.io/frontend-programming/static/css/main.09d41f32.css.map",
-    "main.86cefc6c.js.map": "/aufaroot18.github.io/frontend-programming/static/js/main.86cefc6c.js.map",
-    "787.d02d9e27.chunk.js.map": "/aufaroot18.github.io/frontend-programming/static/js/787.d02d9e27.chunk.js.map"
+    "main.css": "/frontend-programming/static/css/main.09d41f32.css",
+    "main.js": "/frontend-programming/static/js/main.5076c208.js",
+    "static/js/787.d02d9e27.chunk.js": "/frontend-programming/static/js/787.d02d9e27.chunk.js",
+    "index.html": "/frontend-programming/index.html",
+    "main.09d41f32.css.map": "/frontend-programming/static/css/main.09d41f32.css.map",
+    "main.5076c208.js.map": "/frontend-programming/static/js/main.5076c208.js.map",
+    "787.d02d9e27.chunk.js.map": "/frontend-programming/static/js/787.d02d9e27.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.09d41f32.css",
-    "static/js/main.86cefc6c.js"
+    "static/js/main.5076c208.js"
   ]
 }
