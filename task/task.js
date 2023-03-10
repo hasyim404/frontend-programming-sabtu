@@ -4,7 +4,32 @@
  * Object memiliki property: name, age, major.
  * Note: Ubah var menggunakan JavaScript Modern.
  */
-var users;
+const users = [{
+    name: "Muhammad Ismail",
+    age: 20,
+    major: "Informatics",
+  },
+  {
+    name: "Gunawan",
+    age: 22,
+    major: "Informatics",
+  },
+  {
+    name: "Chika Aulia Zahwa",
+    age: 20,
+    major: "Informatics",
+  },
+  {
+    name: "Ahmad Noval Fahmi",
+    age: 22,
+    major: "Informatics",
+  },
+  {
+    name: "Reza Muhammad",
+    age: 25,
+    major: "Informatics",
+  }
+];
 
 /**
  * TODO 2
@@ -12,7 +37,11 @@ var users;
  * Hint: Gunakan for/for-of.
  * Note: Ubah function menggunakan arrow function.
  */
-function all() {}
+const all = () => {
+  for (let user of users) {
+    console.log(user);
+  };
+};
 
 /**
  * TODO 3
@@ -20,7 +49,10 @@ function all() {}
  * Hint: Gunakan method push.
  * Note: Ubah function menggunakan arrow function.
  */
-function store(user) {}
+const store = (user) => {
+  users.push(user);
+  console.log(users);
+};
 
 /**
  * TODO 4.
@@ -28,7 +60,10 @@ function store(user) {}
  * Hint: re-assign array.
  * Note: Ubah function menggunakan arrow function.
  */
-function update(index, user) {}
+const update = (index, user) => {
+  users[index] = user;
+  console.log(users);
+};
 
 /**
  * TODO 5.
@@ -36,7 +71,10 @@ function update(index, user) {}
  * Hint: Gunakan method splice.
  * Note: Ubah function menggunakan arrow function.
  */
-function destroy(index) {}
+const destroy = (index) => {
+  users.splice(index, 1);
+  console.log(users);
+};
 
 /**
  * Function main.
@@ -88,4 +126,10 @@ main();
  * Jangan hapus exports.
  * Exports ini untuk tujuan testing.
  */
-module.exports = { users, all, store, update, destroy };
+module.exports = {
+  users,
+  all,
+  store,
+  update,
+  destroy
+};
