@@ -73,5 +73,6 @@
 
   .hero__right {
     flex-basis: 60%;
+    text-align: right;
   }
 }

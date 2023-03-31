@@ -1,6 +1,6 @@
 import styles from "./Movies.module.css";
 
-function Movies() {
+const Movies = () => {
   return (
     <div className={styles.container}>
       <section className={styles.movies}>
@@ -109,6 +109,6 @@ function Movies() {
       </section>
     </div>
   );
-}
+};
 
 export default Movies;

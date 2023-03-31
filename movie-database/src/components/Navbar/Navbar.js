@@ -1,19 +1,11 @@
-/**
- * Import CSS Module Navbar.
- * Disimpan di object styles.
- */
 import styles from "./Navbar.module.css";
 
-function Navbar() {
-  /**
-   * Menggunakan styles yang sudah diimport.
-   * Memanggilnya menggunakan expression.
-   */
+const Navbar = () => {
   return (
     <div className={styles.container}>
       <nav className={styles.navbar}>
-        <div>
-          <h1 className={styles.navbar__brand}>Movie App</h1>
+        <div className={styles.navbar__brand}>
+          <h4>Movie App</h4>
         </div>
         <div>
           <ul className={styles.navbar__list}>
@@ -27,6 +19,6 @@ function Navbar() {
       </nav>
     </div>
   );
-}
+};
 
 export default Navbar;
