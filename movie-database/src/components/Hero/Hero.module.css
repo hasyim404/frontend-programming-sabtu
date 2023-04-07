@@ -1,7 +1,6 @@
 /* Small Screen */
 .container {
-  margin: 5rem auto;
-  padding: 1rem;
+  margin: 1rem;
 }
 
 .hero {
@@ -57,9 +56,11 @@
 @media (min-width: 992px) {
   .container {
     max-width: 1200px;
+    margin: 3rem auto;
   }
 
   .hero {
+    margin: 0 1rem;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -72,5 +73,6 @@
 
   .hero__right {
     flex-basis: 60%;
+    text-align: right;
   }
 }
