@@ -29,6 +29,7 @@ const Movies = (props) => {
         <h2 className={styles.movies__title}>Latest Movies</h2>
         <div className={styles.movie__container}>
           {/* Looping data movie & render, kirim */}
+
           {movies.map(function (movie) {
             return <Movie key={movie.id} movie={movie} />;
           })}

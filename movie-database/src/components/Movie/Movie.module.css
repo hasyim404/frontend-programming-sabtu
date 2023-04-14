@@ -19,6 +19,12 @@
   color: #64748b;
 }
 
+.movie__type {
+  color: #b5179e;
+  margin: -15px 0 5px 0;
+  text-transform: capitalize;
+}
+
 /* Medium Screen */
 @media (min-width: 768px) {
   .movie {
