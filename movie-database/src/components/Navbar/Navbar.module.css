@@ -48,8 +48,7 @@
 
 /* Large Screen */
 @media (min-width: 992px) {
-  /* 
-   * Nothing TODO HERE.
-   * We haven't styling Navbar.
-   */
+  .container {
+    padding: 1rem 5.5rem;
+  }
 }

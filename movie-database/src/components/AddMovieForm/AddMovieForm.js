@@ -1,78 +1,40 @@
-import { nanoid } from "nanoid";
 import { useState } from "react";
-import Alert from "../Alert/Alert";
 import styles from "./AddMovieForm.module.css";
+import { nanoid } from "nanoid";
 
-// Menangkap props
 function AddMovieForm(props) {
-  /**
-   * Ini hanya snippet(potongan) code.
-   * Kode yang lainnya tetap sama.
-   */
-
-  // Destructing props: state movies
   const { movies, setMovies } = props;
 
-  // Membuat state title dan date
   const [title, setTitle] = useState("");
+  const [isTitleError, setIsTitleError] = useState("");
   const [date, setDate] = useState("");
+  const [isDateError, setIsDateError] = useState("");
 
-  // Membuat state: isTitleError, isDateError
-  const [isTitleError, setIsTitleError] = useState(false);
-  const [isDateError, setIsDateError] = useState(false);
-
-  /**
-   * Membuat fungsi handleTitle
-   * Dijalankan ketika nilai input berubah
-   */
-  function handleTitle(e) {
-    /**
-     * Jalankan fungsi setTitile.
-     * Set title nilai baru: input saat ini.
-     */
-    setTitle(e.target.value);
+  function handleInput(event) {
+    setTitle(event.target.value);
   }
 
-  /**
-   * Membuat fungsi handleDate
-   * Dijalankan ketika nilai input berubah
-   */
-  function handleDate(e) {
-    /**
-     * Jalankan fungsi setDate.
-     * Set date nilai baru: input saat ini.
-     */
-    setDate(e.target.value);
+  function handleDate(event) {
+    setDate(event.target.value);
   }
 
-  function handleSubmit(e) {
-    /**
-     * Mencegah perilaku default form.
-     * Mencegah form direfresh ketika disubmit.
-     */
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
 
-    // Jika title kosong, set isTitleError true
-    if (title === "") {
+    if (title == "") {
       setIsTitleError(true);
-    }
-    // Jika title kosong, set isTitleError true
-    else if (date === "") {
+    } else if (date == "") {
       setIsDateError(true);
-    }
-    // Jika tidak, maka push movie dan set error false
-    else {
-      const movie = {
-        id: nanoid(),
+    } else {
+      const newMovie = {
+        id: nanoid(8),
         title: title,
         year: date,
         type: "Movie",
         poster: "https://picsum.photos/300/400",
       };
 
-      // SOLVED: HOW TO ADD MOVIE TO MOVIES :)
-      setMovies([...movies, movie]);
-
+      setMovies([...movies, newMovie]);
       setIsTitleError(false);
       setIsDateError(false);
     }
@@ -80,63 +42,43 @@ function AddMovieForm(props) {
 
   return (
     <div className={styles.container}>
-      <section className={styles.form}>
+      <div className={styles.form}>
         <div className={styles.form__left}>
           <img
-            className={styles.form__image}
+            className={styles.form__img}
             src="https://picsum.photos/536/354"
             alt=""
           />
         </div>
         <div className={styles.form__right}>
-          <h2 className={styles.form__title}>Add Movie Form</h2>
-          <form onSubmit={handleSubmit}>
-            <div className={styles.form__group}>
-              <label htmlFor="title" className={styles.form__label}>
-                Title
-              </label>
-              <input
-                id="title"
-                className={styles.form__input}
-                type="text"
-                name="title"
-                // Memberikan value input: title
-                value={title}
-                // Memberikan event onChange
-                onChange={handleTitle}
-              />
-              {/*
-               * Menambahkan infline if: operator &&
-               * Jika isTitleError true maka render error
-               */}
-              {isTitleError && <Alert>Title Wajib Diisi</Alert>}
-            </div>
-            <div className={styles.form__group}>
-              <label htmlFor="date" className={styles.form__label}>
-                Date
-              </label>
-              <input
-                id="date"
-                className={styles.form__input}
-                type="text"
-                name="date"
-                // Memberikan value input: date
-                value={date}
-                // Memberikan event onChange
-                onChange={handleDate}
-              />
-              {/*
-               * Menambahkan infline if: operator &&
-               * Jika isDateError true maka render error
-               */}
-              {isDateError && <Alert>Date Wajib Diisi</Alert>}
-            </div>
-            <div>
-              <button className={styles.form__button}>Add Movie</button>
-            </div>
+          <h4 className={styles.form__title}>Add Movie</h4>
+          <form action="" className={styles.form__area} onSubmit={handleSubmit}>
+            <label className={styles.form__label}>Title</label>
+            <input
+              name="title"
+              className={styles.form__input}
+              type="text"
+              id="title"
+              value={title}
+              onChange={handleInput}
+            />
+            {isTitleError && <Alert>Title wajib diisi</Alert>}
+            <label className={styles.form__label}>Year</label>
+            <input
+              name="year"
+              className={styles.form__input}
+              type="text"
+              id="date"
+              value={date}
+              onChange={handleDate}
+            />
+            {isDateError && <Alert>Date wajib diisi</Alert>}
+            <button className={styles.form__button} type="submit">
+              Submit
+            </button>
           </form>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
