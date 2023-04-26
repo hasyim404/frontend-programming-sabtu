@@ -1,13 +1,20 @@
 import Footer from "../components/Footer";
-import Hello from "../components/Hello";
+import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import Globals from "../components/Globals";
+import indonesia from "../utils/constants/indonesia";
+import { useState } from "react";
+import Provinces from "../components/Provinces";
+import AddCovidForm from "../components/AddCovidForm";
 
 function Main() {
+  const globals = useState(indonesia);
   return (
     <main>
-      <h1>Final Project - Covid ID</h1>
-      <h2>Good Luck, Bestie</h2>
-      <Hello />
+      <Hero />
+      <Globals globals={globals} />
+      <Provinces />
+      <AddCovidForm />
     </main>
   );
 }
