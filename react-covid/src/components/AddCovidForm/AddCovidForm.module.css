@@ -27,7 +27,7 @@
   display: block;
   margin-bottom: 0.5rem;
 }
-
+.form__select,
 .form__areas input,
 .form__areas input:active,
 .form__areas input:focus {
@@ -37,6 +37,11 @@
   border: 2px solid #06d6a0;
   outline: none;
   border-radius: 10px;
+}
+
+.form__select option {
+  width: 1rem !important;
+  background-color: #06d6a0;
 }
 
 .form__button {
